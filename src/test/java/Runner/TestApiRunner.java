@@ -54,7 +54,7 @@ public class TestApiRunner {
         response = request
                 .when()
                 .get(ENDPOINT);
-        response.then().statusCode(401);
+        response.then().statusCode(HttpStatus.SC_UNAUTHORIZED);
     }
 
     @Test
@@ -69,7 +69,5 @@ public class TestApiRunner {
                 .get(ENDPOINT);
         response.then().statusCode(HttpStatus.SC_NOT_FOUND);
     }
-
-
 
 }
