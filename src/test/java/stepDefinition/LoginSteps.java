@@ -19,7 +19,7 @@ public class LoginSteps {
     private static final Logger LOGGER = Logger.getLogger(LoginSteps.class.getName());
 
     @Dado("^que estou na home da aplicacao Zé Delivery$")
-    public void queEstouNaHomeDaAplicacaoZéDelivery() {
+    public void queEstouNaHomeDaAplicacaoZeDelivery() {
         Navegador.getNavigator().acceptBrowser();
         Navegador.getNavigator().enterLogin();
     }
@@ -30,7 +30,7 @@ public class LoginSteps {
     }
 
     @E("^informo um usuário e senha '(.+)'$")
-    public void informoUmUsuárioESenhaType(String ct) {
+    public void informoUmUsuarioESenhaType(String ct) {
         Navegador.getNavigator().quandoTentoFazerLogin(ct);
     }
 
