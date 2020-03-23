@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'qa-challenge'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.3.0'
+    testCompile group: 'io.cucumber', name: 'cucumber-java', version: '4.2.6'
+    testCompile group: 'io.cucumber', name: 'cucumber-junit', version: '4.2.6'
+    testCompile group: 'io.cucumber', name: 'cucumber-picocontainer', version: '4.2.6'
+    compile group: 'io.rest-assured', name: 'json-path', version: '3.3.0'
+    compile group: 'org.apache.clerezza.ext', name: 'org.json.simple', version: '0.4'
+    compile "org.seleniumhq.selenium:selenium-java:3.14.0"
+    compile "io.github.bonigarcia:webdrivermanager:3.3.0"
+    compile 'com.rajatthareja:reportbuilder:1.0.3'
+    compileOnly('org.projectlombok:lombok:1.18.10')
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+    testAnnotationProcessor "org.projectlombok:lombok:1.18.10"
+    testCompileOnly "org.projectlombok:lombok:1.18.10"
+
+}
