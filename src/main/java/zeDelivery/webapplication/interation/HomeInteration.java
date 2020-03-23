@@ -1,6 +1,6 @@
 package zeDelivery.webapplication.interation;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Assert;
 import java.util.logging.Logger;
 import org.openqa.selenium.support.PageFactory;
 import zeDelivery.webapplication.pageObjects.HomePage;
@@ -53,7 +53,7 @@ public class HomeInteration {
         LOGGER.info("Erro ao inserir email e senha invalido");
         BrowserDriver.waitForElement(homePage.getUsernameValidationDiv());
        String mensagemDeErro = homePage.emailNaoEncontrado.getText();
-        assertEquals("Valida mensagem:","E-mail não encontrado.", mensagemDeErro);
+        Assert.assertEquals("Valida mensagem:","E-mail não encontrado.", mensagemDeErro);
     }
 
 }
