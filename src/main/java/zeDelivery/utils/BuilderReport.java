@@ -22,54 +22,43 @@ public class BuilderReport {
     private static Date date = new Date();
 
     public static void main(String... args) {
-        // Create Report_Builder Object
+
         ReportBuilder reportBuilder = new com.rajatthareja.reportbuilder.ReportBuilder();
-
         reportBuilder.setReportDirectory("target/report/");
-
-
-        // Set output report_doc file name
         reportBuilder.setReportFileName(dateFormatFile.format(date) + "_TestReport");
-
-        // Set Report Title
-        reportBuilder.setReportTitle("<img src=\'https://i.ibb.co/vh0JrZy/drozzlogo.png'>");
+        reportBuilder.setReportTitle("<img src=\'https://i.ibb.co/1JWYkVc/logozedelivery.png'>");
 
         // Set Report Color for more visit http://materializecss.com/color.html
-        reportBuilder.setReportColor(String.valueOf(Color.ORANGE));
-
+        reportBuilder.setReportColor(String.valueOf(Color.BLUE));
         // Enable voice control for report_doc
-        reportBuilder.enableVoiceControl();
+        reportBuilder.disableVoiceControl();
 
         // Add additional info for Report
-        reportBuilder.setAdditionalInfo("Company", "DROZ");
+        reportBuilder.setAdditionalInfo("Company", "Zé");
         reportBuilder.setAdditionalInfo("Date", dateFormat.format(date));
-
-
+        reportBuilder.setAdditionalInfo("QA", "<b></i> " + System.getProperty("user.name") + " </i></b>");
+        reportBuilder.setAdditionalInfo("Team", "Engeering ZéDelivery");
+        reportBuilder.setAdditionalInfo("Projeto","qachallenge");
+        reportBuilder.setAdditionalInfo("Channel Slack", "#ZeDelivery");
+        reportBuilder.setAdditionalInfo("Java Version", System.getProperty("java.version"));
         // Create list or report_doc Files or Directories or URLs or JSONObject or JSONString
         List<Object> cucumberJsonReports = new ArrayList<>();
         cucumberJsonReports.add(new File("target/report/cucumber.json"));
         cucumberJsonReports.add(new File("target/report/"));
-
         // Build your report_doc
         reportBuilder.build(cucumberJsonReports);
     }
 
     public enum Color {
-
-        //        ORANGE("orange lighten-4");
-//        ORANGE("b3e5fc light-blue lighten-4");
-        ORANGE("green");
-
+        BLUE("blue");
 
         private final String color;
-
         /**
          * @param color for report_doc
          */
         Color(final String color) {
             this.color = color;
         }
-
         @Override
         public String toString() {
             return color.toLowerCase();
