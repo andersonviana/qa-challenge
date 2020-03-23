@@ -4,7 +4,7 @@
 
 Funcionalidade: Login Zé Delivery
 
-  @login @all
+  @login @all @web
   Esquema do Cenario: Login utilizando o email
     Dado que estou na home da aplicacao Zé Delivery
     Quando clico em entrar com email
