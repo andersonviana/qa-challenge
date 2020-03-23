@@ -1,8 +1,9 @@
 package zeDelivery.webapplication.interation;
 
-import org.junit.Assert;
 import java.util.logging.Logger;
+
 import org.openqa.selenium.support.PageFactory;
+
 import zeDelivery.webapplication.pageObjects.HomePage;
 
 import zeDelivery.utils.BrowserDriver;
@@ -18,7 +19,7 @@ public class HomeInteration {
     private static final Logger LOGGER = Logger.getLogger(HomePage.class.getName());
     private static final HomePage homePage = PageFactory.initElements(BrowserDriver.getCurrentDriver(), HomePage.class);
 
-    public static void isDisplayedCheck(){
+    public static void isDisplayedCheck() {
         LOGGER.info("O botão [Entrar] apareceu na tela");
         BrowserDriver.waitForElement(homePage.entrar);
         homePage.entrar.isDisplayed();
@@ -30,12 +31,12 @@ public class HomeInteration {
         BrowserDriver.jsClick(homePage.entrar);
     }
 
-    public static void clickButtonEnterWithEmail(){
+    public static void clickButtonEnterWithEmail() {
         LOGGER.info("Click no botão [ENTRAR COM EMAIL]");
         BrowserDriver.jsClick(homePage.entrarComEmail);
     }
 
-    public static void login(String username, String password){
+    public static void login(String username, String password) {
         BrowserDriver.waitForElement(homePage.emailInputEmail);
         LOGGER.info("login com email:" + username + " senha:" + password);
         homePage.emailInputEmail.sendKeys(username);
@@ -43,17 +44,16 @@ public class HomeInteration {
         BrowserDriver.jsClick(homePage.enterEmailButtonSignIn);
     }
 
-    public static void validaLoginComSucesso(){
+    public static void validaLoginComSucesso() {
         LOGGER.info("Login Realizado com sucesso");
         BrowserDriver.waitForElement(homePage.headerUser);
         homePage.headerUser.isDisplayed();
     }
 
-    public static void validaErroNoLogin(){
+    public static void validaErroNoLogin() {
         LOGGER.info("Erro ao inserir email e senha invalido");
         BrowserDriver.waitForElement(homePage.getUsernameValidationDiv());
-       String mensagemDeErro = homePage.emailNaoEncontrado.getText();
-        Assert.assertEquals("Valida mensagem:","E-mail não encontrado.", mensagemDeErro);
+        String mensagemDeErro = homePage.emailNaoEncontrado.getText();
     }
 
 }

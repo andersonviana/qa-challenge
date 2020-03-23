@@ -5,7 +5,7 @@ import java.util.Properties;
 import org.junit.AfterClass;
 
 import zeDelivery.utils.BuilderReport;
-import zeDelivery.utils.Utils;
+import utilTest.Utils;
 
 import cucumber.api.java.After;
 import cucumber.api.Scenario;
