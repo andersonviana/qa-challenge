@@ -45,7 +45,7 @@ public class TestApiRunner {
                 .when()
                 .get(ENDPOINT);
         response.then().statusCode(HttpStatus.SC_OK);
-        WeatherResponse wr = new WeatherResponse();
+        WeatherResponse wr;
         wr = gson.fromJson(response.getBody().asString(), WeatherResponse.class);
         Assert.assertEquals(wr.getName().toUpperCase(), CIDADE);
         Assert.assertEquals(wr.getCod().toString(), "200");
