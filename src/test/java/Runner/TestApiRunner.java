@@ -9,9 +9,13 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import org.apache.http.HttpStatus;
+import org.junit.Assert;
 import org.junit.Test;
 
+import stepDefinition.LoginSteps;
 import zeDelivery.api.obj.WeatherResponse;
+
+import java.util.logging.Logger;
 
 /**
  * @author anviana
@@ -26,6 +30,7 @@ public class TestApiRunner {
     final String ENDPOINT = "http://api.openweathermap.org/data/2.5/weather";
     final String API_KEY ="3fda1d11f5903b756fbbff896133556c";
     final String CIDADE ="BARUERI";
+    private static final Logger log = Logger.getLogger(TestApiRunner.class.getName());
 
     @Test
     public void getCidade200() {
@@ -42,6 +47,14 @@ public class TestApiRunner {
         response.then().statusCode(HttpStatus.SC_OK);
         WeatherResponse wr = new WeatherResponse();
         wr = gson.fromJson(response.getBody().asString(), WeatherResponse.class);
+        Assert.assertEquals(wr.getName().toUpperCase(), CIDADE);
+        Assert.assertEquals(wr.getCod().toString(), "200");
+        Assert.assertEquals(wr.getSys().getCountry(), "BR");
+
+        if(wr.getWeather()[0].getMain().equalsIgnoreCase("rain")){
+            log.warning("###### Atenção: ##### \n Está chovendo na cidade de " + CIDADE);
+        }
+
     }
 
     @Test
